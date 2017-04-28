@@ -7,7 +7,7 @@ Bedrock is a modern WordPress stack that helps you get started with the best dev
 Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
 
 ## Design
-[PSD](https://mega.nz/#!NWJFAb6A)
+[PSD](https://mega.nz/#!NWJFAb6A!ljW-k_YAA30d3NxQqdbBcg4qFiaqyNS-GRK2DV4K5A4)
 
 ## Features
 
