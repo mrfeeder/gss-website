@@ -1,0 +1,48 @@
+.banner {
+  .navbar {
+    background-color: transparent;
+    border-radius: 0;
+    border-width: 0 0 1px 0;
+    border-color: #6d6d6d;
+  }
+  .navbar-nav {
+    float: right;
+    .btn-primary {
+      background-color: transparent;
+      border-color: transparent;
+    }
+    .btn a{
+      color: white;
+      background-color: $border-primary;
+      border-radius: 25px;
+      padding: 15px 25px;
+      :hover {
+        background-color: $brand-primary;
+      }
+    }
+    li {
+      padding: 30px 0;
+      a {
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+  .navbar-default .navbar-nav>.current-menu-item {
+    >a,
+    >a:focus,
+    >a:hover {
+      background-color: transparent;
+      color: $border-primary;
+    }
+    border-bottom: 2px solid $border-primary;
+  }
+  .navbar-header {
+    padding: 30px 0;
+  }
+}
+// demo for header image color dark to show text color of header
+body {
+  background-color: gray;
+}

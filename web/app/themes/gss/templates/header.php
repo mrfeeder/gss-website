@@ -1,12 +1,19 @@
 <header class="banner">
-  <div class="container">
-    <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
-    <nav class="nav-primary">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="<?= get_template_directory_uri(); ?>/assets/images/logo.png" alt="">
+        </a>
+      </div>
       <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
-      endif;
+        $main_menu = array(
+          'menu_class' => 'nav navbar-nav',
+          'theme_location' => 'gssweb-primery-menu'
+        );
+        if ( has_nav_menu( 'gssweb-primery-menu' ) ) { wp_nav_menu( $main_menu ); }
+        else { wp_nav_menu(); }
       ?>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>

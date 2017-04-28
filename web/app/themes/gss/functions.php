@@ -26,3 +26,25 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+add_action('init', 'gss_menu_name');
+if (!function_exists('gss_menu_name')) {
+  function gss_menu_name($wp_customize = FALSE) {
+    if ($wp_customize) :
+      $wp_customize->add_setting('gss_menu_name', array(
+        'default' => 'Gssweb Primary Menu',
+      ));
+      $wp_customize->add_control('gss_menu_name', array(
+        'label' => __('Main menu location name', 'gss'),
+        'section' => 'gss_customize_header',
+        'settings' => 'gss_menu_name',
+      ));
+      return;
+    endif;
+    register_nav_menus(array(
+      'gssweb-primery-menu' => __(get_theme_mod('gss_menu_name', 'Gssweb Primary Menu')),
+    ));
+
+  }
+}
