@@ -19,9 +19,6 @@ matrix:
 
 cache:
   yarn: true
-  directories:
-    - web/app/themes/gss/bower_components
-    - web/app/themes/gss/node_modules
 
 before_install:
   - cd web/app/themes/gss/
