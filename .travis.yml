@@ -14,8 +14,8 @@ matrix:
 
 cache:
   directories:
-    - bower_components
-    - node_modules
+    - web/app/themes/gss/bower_components
+    - web/app/themes/gss/node_modules
 
 before_install:
   - cd web/app/themes/gss/
@@ -29,6 +29,9 @@ install:
   - composer self-update && composer --version
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer global require squizlabs/php_codesniffer
+
+before_script:
+  - cd web/app/themes/gss/
 
 script:
   - npm run build
