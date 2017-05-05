@@ -8,6 +8,11 @@ php:
 env:
   - TRAVIS_NODE_VERSION="4"
 
+notifications:
+  email:
+    on_success: always # default: change
+    on_failure: never # default: always
+
 matrix:
   allow_failures:
     - php: nightly

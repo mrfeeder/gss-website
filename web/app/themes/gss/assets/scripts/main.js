@@ -51,7 +51,7 @@
       fire = fire && namespace[func];
       fire = fire && typeof namespace[func][funcname] === 'function';
 
-      if(fire) {
+      if (fire) {
         namespace[func][funcname](args);
       }
     },
