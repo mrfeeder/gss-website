@@ -32,3 +32,10 @@ foreach ($sage_includes as $file) {
     require_once $filepath;
 }
 unset($file, $filepath);
+
+/**
+ * Hide Admin bar
+ */
+add_filter('show_admin_bar', '__return_false');
+
+

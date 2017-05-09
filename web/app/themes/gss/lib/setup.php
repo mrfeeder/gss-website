@@ -107,7 +107,10 @@ function display_sidebar()
         is_page_template('template-custom.php'),
     ]);
 
-    return apply_filters('sage/display_sidebar', $display);
+    //force to not display sidebar
+    $display = false;
+
+    return apply_filters('sage/display_sidebar', false);
 }
 
 /**
