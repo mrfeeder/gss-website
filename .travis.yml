@@ -22,6 +22,7 @@ cache:
 
 before_install:
   - cd web/app/themes/gss/
+  - cp assets/manifest.json.example assets/manifest.json
 
 install:
   - nvm install $TRAVIS_NODE_VERSION
