@@ -14,7 +14,7 @@
 	&-top {
 		text-align: center;
 		h1 {
-			color: #90b945;
+			color: $about-color;
 			position: relative;
 			padding-bottom: 30px;
 			&:before {
@@ -23,7 +23,7 @@
 				width: 60px;
 				bottom: 0;
 				height: 2px;
-				background: #90b945;
+				background: $about-color;
 				left: calc(50% - 30px);
 			}
 		}
@@ -32,27 +32,25 @@
 		margin-top: 50px;
 		.col-md-4 {
 			text-align: center;
-			border: 1px solid #e5e5e5;
+			border: 1px solid $border-color;
 			border-left: 0;
-			.items {
-				padding-top: 60px;
-				padding-bottom: 80px;
-				padding-left: 40px;
-				padding-right: 40px;
+			.item {
+				padding: 60px 40px 80px;
+        margin: 0 -15px;
         h3 {
           font-size: 16px;
         }
 				p {
-					width: 60%;
-				}
+          width: 60%;
+        }
         &.green {
-          background: #86af49;
-          color: #fff;
+          background: $about-bg-color;
+          color: $white-color;
         }
 			}
 			&:last-child {
-				border-right: none;
-			}
+        border-right: none;
+      }
 		}
 	}
 }
