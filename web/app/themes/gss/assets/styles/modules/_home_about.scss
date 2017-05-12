@@ -8,6 +8,8 @@
 	h1, h3 {
 		font-family: "Poppins, sans-serif";
 		cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
 	}
 	&-top {
 		text-align: center;
@@ -37,9 +39,16 @@
 				padding-bottom: 80px;
 				padding-left: 40px;
 				padding-right: 40px;
-				P {
+        h3 {
+          font-size: 16px;
+        }
+				p {
 					width: 60%;
 				}
+        &.green {
+          background: #86af49;
+          color: #fff;
+        }
 			}
 			&:last-child {
 				border-right: none;
