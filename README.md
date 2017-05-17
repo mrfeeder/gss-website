@@ -1,30 +1,10 @@
-# GSS Website - Based on [Bedrock](https://roots.io/bedrock/)
-[![Packagist](https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square)](https://packagist.org/packages/roots/bedrock)
-[![Build Status](https://img.shields.io/travis/roots/bedrock.svg?style=flat-square)](https://travis-ci.org/roots/bedrock)
+# GSS Website - Based on [Bedrock](https://roots.io/bedrock/) 
 
-Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
-
-Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including 
+the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
 
 ## Design
 [PSD](https://mega.nz/#!NWJFAb6A!ljW-k_YAA30d3NxQqdbBcg4qFiaqyNS-GRK2DV4K5A4)
-
-## Features
-
-* Better folder structure
-* Dependency management with [Composer](http://getcomposer.org)
-* Easy WordPress configuration with environment specific files
-* Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-* Autoloader for mu-plugins (use regular plugins as mu-plugins)
-* Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
-
-Use [Trellis](https://github.com/roots/trellis) for additional features:
-
-* Easy development environments with [Vagrant](http://www.vagrantup.com/)
-* Easy server provisioning with [Ansible](http://www.ansible.com/) (Ubuntu 16.04, PHP 7.1, MariaDB)
-* One-command deploys
-
-See a complete working example in the [roots-example-project.com repo](https://github.com/roots/roots-example-project.com).
 
 ## Requirements
 
@@ -33,11 +13,15 @@ See a complete working example in the [roots-example-project.com repo](https://g
 
 ## Installation
 
-1. Create a new project in a new folder for your project:
+1. Clone the repo
 
-  `composer create-project roots/bedrock your-project-folder-name`
+  `git clone git@github.com:gsmartsolutions/gss-website.git`
+  
+2. Run Composer to get Wordpress core and plugins
 
-2. Copy `.env.example` to `.env` and update environment variables:
+  `composer install`
+  
+3. Copy `.env.example` to `.env` and update environment variables:
   * `DB_NAME` - Database name
   * `DB_USER` - Database user
   * `DB_PASSWORD` - Database password
@@ -45,32 +29,60 @@ See a complete working example in the [roots-example-project.com repo](https://g
   * `WP_ENV` - Set to environment (`development`, `staging`, `production`)
   * `WP_HOME` - Full URL to WordPress home (http://example.com)
   * `WP_SITEURL` - Full URL to WordPress including subdirectory (http://example.com/wp)
-  * `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
+  * `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, 
+  `NONCE_SALT` (Copy n Paste from [Roots WordPress Salt Generator][roots-wp-salt].)
 
-  If you want to automatically generate the security keys (assuming you have wp-cli installed locally) you can use the very handy [wp-cli-dotenv-command][wp-cli-dotenv]:
+4. Set your site vhost document root to `/path/to/site/web/`
 
-      wp package install aaemnnosttv/wp-cli-dotenv-command
+5. Verify install with `WP_HOME`. Go to Admin at `/wp/wp-admin`
 
-      wp dotenv salts regenerate
+## Theme Developmemnt
 
-  Or, you can cut and paste from the [Roots WordPress Salt Generator][roots-wp-salt].
+Using Sage for theme development. Read more at [https://roots.io/sage/docs/](https://roots.io/sage/docs/).
 
-3. Add theme(s) in `web/app/themes` as you would for a normal WordPress site.
+### Install gulp and Bower
 
-4. Set your site vhost document root to `/path/to/site/web/` (`/path/to/site/current/web/` if using deploys)
+1. Install [node.js](http://nodejs.org/download/)
+2. Update latest version of npm : `npm install -g npm@latest`
+1. Install [gulp](http://gulpjs.com) and [Bower](http://bower.io/) globally with `npm install -g gulp bower`
+2. Go to theme with `cd ./web/app/themes/gss`, then run `npm install`
+3. Run `bower install`
+4. Create `/path/to/theme/assets/manifest.json` from `/path/to/theme/assets/manifest.json.example`
+5. Update `devUrl` in `/path/to/theme/assets/manifest.json` to reflect your local Wordpres hostname (`WP_HOME`).
+6. Use following gulp commands and enjoy! 
 
-5. Access WP admin at `http://example.com/wp/wp-admin`
+### Available gulp commands
+
+* `gulp` — Compile and optimize the files in your assets directory
+* `gulp watch` — Compile assets when file changes are made
+* `gulp --production` — Compile assets for production (no source maps).
+
+### Using BrowserSync
+
+Create `/path/to/theme/assets/manifest.json` from `/path/to/theme/assets/manifest.json.example` 
+
+To use BrowserSync during `gulp watch` you need to update `devUrl` at the bottom of `/path/to/theme/assets/manifest.json` to reflect your local development hostname.
+
+For example, if your local development URL is `http://project-name.dev` you would update the file to read:
+```json
+...
+  "config": {
+    "devUrl": "http://project-name.dev"
+  }
+...
+```
+If your local development URL looks like `http://localhost:8888/project-name/` you would update the file to read:
+```json
+...
+  "config": {
+    "devUrl": "http://localhost:8888/project-name/"
+  }
+...
+```
 
 ## Deploys
 
-There are two methods to deploy Bedrock sites out of the box:
-
-* [Trellis](https://github.com/roots/trellis)
-* [bedrock-capistrano](https://github.com/roots/bedrock-capistrano)
-
-Any other deployment method can be used as well with one requirement:
-
-`composer install` must be run as part of the deploy process.
+WIP
 
 ## Documentation
 
@@ -78,17 +90,7 @@ Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://r
 
 ## Contributing
 
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
-
-## Community
-
-Keep track of development and community news.
-
-* Participate on the [Roots Discourse](https://discourse.roots.io/)
-* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-* Listen to the [Roots Radio podcast](https://roots.io/podcast/)
-
-[roots-wp-salt]:https://roots.io/salts.html
-[wp-cli-dotenv]:https://github.com/aaemnnosttv/wp-cli-dotenv-command
+- [toannk](https://twitter.com/khanhtoan)
+- [satthu159]()
+- [mrfeeder]()
+- [tucq88](https://twitter.com/tucq88)

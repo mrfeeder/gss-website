@@ -20,7 +20,9 @@
   "scripts": {
     "build": "bower install && gulp",
     "jshint": "gulp jshint",
-    "jscs": "jscs gulpfile.js assets/scripts/*.js"
+    "jscs": "jscs gulpfile.js assets/scripts/*.js",
+    "phpcs": "phpcs --standard=ruleset.xml --extensions=php --ignore=vendor -n -s .",
+    "test": "npm run jshint; npm run jscs; npm run phpcs"
   },
   "engines": {
     "node": ">= 4.5"

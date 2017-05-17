@@ -7,6 +7,15 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "^3.3.7"
+    "bootstrap-sass": "^3.3.7",
+    "Ionicons": "ionicons#^2.0.1"
+  },
+  "overrides": {
+    "Ionicons": {
+      "main": [
+        "./scss/ionicons.scss",
+        "./fonts/*"
+      ]
+    }
   }
 }

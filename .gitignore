@@ -18,3 +18,7 @@ web/.htaccess
 # Composer
 vendor/*
 !vendor/.gitkeep
+
+#IDE
+.idea/*
+npm-debug.log
