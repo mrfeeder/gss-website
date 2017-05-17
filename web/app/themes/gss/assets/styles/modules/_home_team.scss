@@ -1,0 +1,22 @@
+.our-team {
+    padding-top: 100px;
+    .our-services-top {
+        margin-bottom: 80px;
+    }
+    .team-block {
+        text-align: center;
+        padding: 22px 20px;
+        box-shadow: 0 0 10px 0 rgba(105,105,105,.9);
+    }
+    .area-show-more {
+        margin-top: 50px;
+        text-align: center;
+        .btn-outline-primary {
+            border-radius: 25px;
+            box-shadow: 0 0 10px 0 rgba(105,105,105,.1);
+            color: $about-color;
+            text-transform: uppercase;
+            padding: 10px 35px;
+        }
+    }
+}
