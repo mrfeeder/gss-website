@@ -27,7 +27,37 @@
 .block-item {
     padding-left: 0;
     padding-right: 0;
+    position: relative;
+    transition: all 0.35s ease;
     img {
         width: 100%;
+    }
+    .block-project-name {
+        position: absolute;
+        height: 0;
+        bottom:0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        background-color: $about-color;
+        color: $white-color;
+        text-align: center;
+        transition: height 0.7s ease-out;
+        &:before{
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+            line-height: 100%;
+        }
+        .box-center{
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &:hover {
+        .block-project-name {
+            height: 100%;
+        }
     }
 }
