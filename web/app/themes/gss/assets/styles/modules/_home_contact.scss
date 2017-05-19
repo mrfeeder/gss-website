@@ -1,0 +1,79 @@
+.contact-us {
+    background: url("../images/bg-contactus.png");
+    padding-top: 80px;
+    padding-bottom: 80px;
+    color: $white-color;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.intro-contact {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    width: 49.5%;
+    h3 {
+        font-size: 24px;
+        position: relative;
+        padding-bottom: 30px;
+        margin-bottom: 40px;
+        &:before {
+            content: "";
+            background:$white-color;
+            width: 40px;
+            height: 2px;
+            position: absolute;
+            bottom:0;
+        }
+    }
+    p {
+        margin-bottom: 60px;
+    }
+    span {
+        display: block;
+        margin-bottom: 25px;
+        &:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            margin-right: 5px;
+            border-radius:50%;
+            border: 1px solid $white-color;
+            text-align: center;
+            padding: 7px;
+        }
+    }
+    .sup-mail:before {
+        content: "\f0e0";
+    }
+    .sup-phone:before {
+        content: "\f095";
+    }
+    .sup-skype:before {
+        content: "\f17e";
+    }
+}
+.form-contact {
+    background-color: $white-color;
+    padding-bottom: 45px;
+    padding-top: 55px;
+    border-radius: 6px;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    textarea {
+        min-height: 150px;
+    }
+    input {
+        min-height: 50px;
+    }
+    .form-group {
+        margin-bottom: 30px;
+    }
+    .btn {
+        border-radius: 25px;
+        border-width: 0;
+        box-shadow: 0 0 10px 0 rgba(105,105,105,.1);
+        background: $about-color;
+        color: $white-color;
+        text-transform: uppercase;
+        padding: 10px 35px;
+    }
+}
