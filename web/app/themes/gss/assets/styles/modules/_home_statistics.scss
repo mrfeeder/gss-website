@@ -1,0 +1,40 @@
+.we-have {
+    background-color: $about-color;
+    color: $white-color;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    .border-image {
+        border-radius: 50%;
+        border: 1px solid $white-color;
+        height: 90px;
+        padding: 25px;
+        margin: auto;
+        text-align: center;
+        width: 90px;
+        img {
+            margin: auto;
+            max-width: 40px;
+            max-height: 40px;
+        }
+    }
+    h1 {
+        font-size: 48px;
+    }
+    p {
+        font-size: 16px;
+    }
+    .col-md-2 {
+        text-align: center;
+        &:before {
+            content: "";
+            height: 50px;
+            position: absolute;
+            right: 0;
+            border: 1px solid $border-before;
+            top: calc(50% - 25px);
+        }
+        &:last-child:before {
+            border-width: 0;
+        }
+    }
+}
